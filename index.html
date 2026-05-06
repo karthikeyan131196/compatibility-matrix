@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upgrade Paths - Accops Support Portal</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ── Top Navigation ── -->
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="topbar-logo">NUTANIX</div>
+            <nav class="topbar-nav">
+                <a href="#">Home</a>
+                <a href="#">Documentation</a>
+                <a href="#" class="active">Upgrade Paths</a>
+                <a href="#">Downloads</a>
+                <a href="#">Cases</a>
+            </nav>
+            <div class="topbar-user">My Account ▾</div>
+        </div>
+    </header>
+
+    <!-- ── Page Shell ── -->
+    <div class="page-shell">
+
+        <!-- ── Left Sidebar ── -->
+        <aside class="sidebar">
+            <div class="sidebar-item active">Upgrade Paths</div>
+            <div class="sidebar-item">Software Compatibility</div>
+            <div class="sidebar-item">EOL Releases</div>
+            <div class="sidebar-item">Compatibility Matrix</div>
+        </aside>
+
+        <!-- ── Main Content ── -->
+        <main class="main">
+
+            <h1 class="page-title">Upgrade Paths</h1>
+
+            <!-- ── Filter Bar ── -->
+            <div class="filter-bar">
+                <div class="filter-field">
+                    <label class="filter-label" for="softwareType">Software Types</label>
+                    <div class="select-wrap">
+                        <select id="softwareType" class="filter-select"></select>
+                    </div>
+                </div>
+
+                <div class="filter-field">
+                    <label class="filter-label" for="currVersion">Current Release Version</label>
+                    <div class="select-wrap">
+                        <select id="currVersion" class="filter-select">
+                            <option value="">Select version</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="filter-field" style="position:relative;">
+                    <label class="filter-label" for="tarVersion">Target Release Version</label>
+                    <div class="select-wrap">
+                        <select id="tarVersion" class="filter-select">
+                            <option value="">Select version</option>
+                        </select>
+                    </div>
+                    <!-- Custom styled dropdown list (mimics the portal's custom dropdown with icons) -->
+                    <div class="custom-dropdown" id="customDropdown"></div>
+                </div>
+
+                <button class="reset-btn" id="resetBtn">Reset</button>
+            </div>
+
+            <!-- ── Legend Bar ── -->
+            <div class="legend-bar">
+                <span class="leg leg-supported">
+                    <svg class="leg-icon" viewBox="0 0 20 20">
+                        <circle cx="10" cy="10" r="9" fill="#2E7D32" />
+                        <path d="M6 10.5l3 3 5-5" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    Upgrade is supported
+                </span>
+                <span class="leg leg-unsupported">
+                    <svg class="leg-icon" viewBox="0 0 20 20">
+                        <circle cx="10" cy="10" r="9" fill="none" stroke="#D32F2F" stroke-width="1.5" />
+                        <path d="M10 6v5M10 13.5v.5" stroke="#D32F2F" stroke-width="1.8" stroke-linecap="round" />
+                    </svg>
+                    Upgrade is not supported
+                </span>
+                <span class="leg leg-eol">
+                    <svg class="leg-icon" viewBox="0 0 20 20">
+                        <circle cx="10" cy="10" r="9" fill="none" stroke="#F57C00" stroke-width="1.5" />
+                        <path d="M10 6v5M10 13.5v.5" stroke="#F57C00" stroke-width="1.8" stroke-linecap="round" />
+                    </svg>
+                    Target Release is EOL
+                </span>
+                <span class="leg leg-oneclick">
+                    <svg class="leg-icon" viewBox="0 0 20 20">
+                        <path d="M10 2l1.8 5.4H18l-4.9 3.6 1.8 5.5L10 13l-4.9 3.5 1.8-5.5L2 7.4h6.2z" fill="none"
+                            stroke="#888" stroke-width="1.3" />
+                    </svg>
+                    One Click Enabled
+                </span>
+            </div>
+
+            <!-- ── Result Area ── -->
+            <div id="resultArea"></div>
+
+            <!-- ── Notes Section ── -->
+            <div class="notes-section" id="notesSection" style="display:none;">
+                <ul class="notes-list" id="notesList"></ul>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
